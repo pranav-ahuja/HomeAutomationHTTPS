@@ -67,14 +67,14 @@ void setup() {
   {
     digitalWrite(relay, HIGH);
     String message = "Light is on";
-    request->send(200, "text/html", webpage); //sending it to the server (status code, method we are sending the data, payload)
+    request->send_P(200, "text/html", webpage); //sending it to the server (status code, method we are sending the data, payload)
   });
 
   server.on("/led1/off", HTTP_GET, [](AsyncWebServerRequest *request) //Define home page of the web server
   {
     digitalWrite(relay, LOW);
     String message = "Light is off";
-    request->send(200, "text/html", webpage); //sending it to the server (status code, method we are sending the data, payload)
+    request->send_P(200, "text/html", webpage); //sending it to the server (status code, method we are sending the data, payload)
   });
 
   server.onNotFound(notFound);
